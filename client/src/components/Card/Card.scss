@@ -1,0 +1,43 @@
+$font-family: "Noto Sans", sans-serif;
+
+.card {
+  width: 12rem;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid rgb(230, 230, 230);
+  margin: 0.3rem;
+  .user_info {
+    display: flex;
+    align-items: center;
+    padding: 0.7rem 0.6rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+    svg {
+      width: 0.8rem;
+      height: 0.8rem;
+      padding: 0.7rem;
+      background-color: rgb(243, 243, 243);
+      border-radius: 50px;
+      color: black;
+    }
+    p {
+      width: 100vw;
+      text-align: right;
+      margin: 0;
+      font-size: 0.9rem;
+      font-weight: 400;
+      font-family: $font-family;
+    }
+  }
+  .status_content {
+    .status_text {
+      color: black;
+      font-family: $font-family;
+      padding: 0.6rem;
+      font-size: 0.9em;
+      max-height: 11.5vh;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.board {
+  display: flex;
+  margin-top: 10vh;
+  width: calc(100vw - 5rem);
+  min-height: 90vh;
+
+  .todo_column,
+  .in_progress_column,
+  .done_column {
+    flex: 1;
+
+    .column_header {
+      height: 8vh;
+      line-height: 8vh;
+      font-size: 1.1rem;
+      padding: 0 0.5rem;
+      background-color: rgb(230, 230, 230);
+      text-align: center;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0.5rem;
+    }
+  }
+  .in_progress_column {
+    //background-color: skyblue;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+  }
+}
