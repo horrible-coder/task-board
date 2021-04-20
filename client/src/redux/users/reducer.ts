@@ -2,6 +2,7 @@ import userTypes from "./types";
 
 const INITIAL_STATE = {
   username: "",
+  isAuthenticated: false,
 };
 
 const userReducer = (
@@ -14,6 +15,7 @@ const userReducer = (
       return {
         ...state,
         username: action.payload,
+        isAuthenticated: action.payload === "" ? false : true,
       };
     }
     default:

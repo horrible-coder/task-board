@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import apis from "../../api";
 import "./Signup.scss";
 
@@ -76,6 +77,12 @@ const Signup: React.FC<Props> = () => {
         onChange={handleFullNameChange}
         placeholder="Full Name"
       ></input>
+      <p>
+        Have an account?{" "}
+        <Link to="/login">
+          <span>Login</span>
+        </Link>
+      </p>
       <button onClick={handleSubmit}>Sign Up</button>
     </div>
   );

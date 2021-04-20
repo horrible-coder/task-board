@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import apis from "../../api";
 import { setUser } from "../../redux/users/actions";
 import "./Login.scss";
@@ -41,7 +42,7 @@ const Login: React.FC<Props> = () => {
         dispatch(setUser(res.data.fullname));
         setEmail("");
         setPassword("");
-        history.push("/home");
+        history.push("/");
       })
       .catch((err) => {
         window.alert(err);
@@ -63,6 +64,12 @@ const Login: React.FC<Props> = () => {
         onChange={handlePasswordChange}
         placeholder="Password"
       ></input>
+      <p>
+        Don't have an account?{" "}
+        <Link to="/signup">
+          <span>Sign up</span>
+        </Link>
+      </p>
       <button onClick={handleSubmit}>Login</button>
     </div>
   );
