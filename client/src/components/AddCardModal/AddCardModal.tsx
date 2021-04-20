@@ -10,6 +10,8 @@ export interface Props {
   onHide: any;
 }
 
+Modal.setAppElement("#root");
+
 const AddCardModal: React.FC<Props> = ({ show, onHide }) => {
   const [createdBy, setCreatedBy] = useState("");
   const [title, setTitle] = useState("");

@@ -1,11 +1,39 @@
 .navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 10vh;
+  width: 95rem;
   background-color: black;
   color: white;
   position: fixed;
   top: 0;
-  height: 10vh;
-  width: 100%;
-  h1 {
-    margin: 0;
+  right: 0;
+
+  .navbarItemsRight {
+    width: fit-content;
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      list-style-type: none;
+      padding: 0;
+      margin: 0 2rem;
+      svg {
+        cursor: pointer;
+        padding-top: 2px;
+        color: darkgrey;
+      }
+      li {
+        color: white;
+        font-size: 1.2em;
+        font-weight: 400;
+        cursor: pointer;
+        padding: 0 2rem;
+      }
+      li:hover {
+        transition: all ease-in-out 0.75s;
+      }
+    }
   }
 }

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import apis from "../../api";
+import { setUser } from "../../redux/users/actions";
 import "./Login.scss";
 
 export interface Props {}
@@ -9,6 +11,7 @@ const Login: React.FC<Props> = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +38,7 @@ const Login: React.FC<Props> = () => {
     await apis
       .loginUser(payload)
       .then((res) => {
-        console.log(res.data);
+        dispatch(setUser(res.data.fullname));
         setEmail("");
         setPassword("");
         history.push("/home");
