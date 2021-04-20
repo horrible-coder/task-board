@@ -8,7 +8,7 @@ const cardListReducer = (
   state = INITIAL_STATE,
   action: { type: any; payload: any }
 ) => {
-  console.log(action.payload);
+  //console.log(action.payload);
   switch (action.type) {
     case cardListTypes.SET_CARD_LIST: {
       return {

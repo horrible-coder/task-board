@@ -1,20 +1,21 @@
 import "./App.scss";
-import Board from "./components/Board/Board";
-import Navbar from "./components/Navbar/Navbar";
-import Sidebar from "./components/Sidebar/Sidebar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Signup from "./components/Signup/Signup";
+import Login from "./components/Login/Login";
+import Home from "./components/Home/Home";
 
-function App() {
+export interface Props {}
+
+const App: React.FC<Props> = () => {
   return (
-    <div className="App">
-      <div className="left_section">
-        <Sidebar />
-      </div>
-      <div className="right_section">
-        <Navbar />
-        <Board />
-      </div>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
