@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addCard, getCards } from "../controllers/cards";
+import { addCard, getCards, moveCard } from "../controllers/cards";
 
 const route = Router();
 
@@ -21,6 +21,17 @@ route.post("/", async (req, res) => {
   } catch (err) {
     return res.status(422).json({
       errors: { body: ["Add card failed", err.message] },
+    });
+  }
+});
+
+route.put("/move/board", async (req, res) => {
+  try {
+    const card = await moveCard(req.body);
+    return res.status(200).json({ card });
+  } catch (err) {
+    return res.status(422).json({
+      errors: { body: ["Move card failed", err.message] },
     });
   }
 });

@@ -21,12 +21,17 @@ const getCards = () => {
 
 const addCard = (payload: any) => api.post("/cards", payload);
 
+const moveCard = (payload: any) => {
+  return api.put("/cards/move/board", payload);
+};
+
 const apis = {
   createUser,
   loginUser,
   logoutUser,
   getCards,
   addCard,
+  moveCard,
 };
 
 export default apis;

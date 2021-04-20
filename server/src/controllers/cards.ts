@@ -1,7 +1,7 @@
 import Cards from "../models/cards";
 
 interface Card {
-  id: number;
+  id: number | string;
   title: string;
   createdBy: string;
   taskColumn: string;
@@ -19,5 +19,13 @@ export const addCard = async (data: Card) => {
     created_by: data.createdBy,
     task_column: data.taskColumn,
   });
+  return res;
+};
+
+export const moveCard = async (data: Card) => {
+  const res = await Cards.update(
+    { task_column: data.taskColumn },
+    { where: { id: data.id } }
+  );
   return res;
 };

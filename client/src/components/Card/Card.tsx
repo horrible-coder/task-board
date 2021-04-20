@@ -5,11 +5,18 @@ import { Task } from "../Board/Board";
 export interface Props {
   task: Task;
   color: string;
+  onDragStart: any;
 }
 
-const Card: React.FC<Props> = ({ task, color }) => {
+const Card: React.FC<Props> = ({ task, color, onDragStart }) => {
   return (
-    <div className="card">
+    <div
+      className="card"
+      draggable
+      onDragStart={(event) =>
+        onDragStart(event, task.id + " - " + task.task_column)
+      }
+    >
       <div className="user_info" style={{ backgroundColor: color }}>
         <PersonIcon />
         <p>{task.created_by}</p>
