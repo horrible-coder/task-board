@@ -58,3 +58,8 @@ export const loginUser = async (req: any, res: any) => {
     });
   }
 };
+
+export const getUsers = async () => {
+  const res = await Users.findAll();
+  return res;
+};

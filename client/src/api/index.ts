@@ -15,6 +15,10 @@ const logoutUser = () => {
   return api.post("/logout");
 };
 
+const getUsers = () => {
+  return api.get("/users");
+};
+
 const getCards = () => {
   return api.get("/cards");
 };
@@ -29,6 +33,7 @@ const apis = {
   createUser,
   loginUser,
   logoutUser,
+  getUsers,
   getCards,
   addCard,
   moveCard,

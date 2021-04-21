@@ -27,7 +27,7 @@ const Login: React.FC<Props> = () => {
       if (!email) throw new Error("Provide an email.");
       if (!password) throw new Error("Provide a password.");
     } catch (err) {
-      window.alert(err);
+      window.alert(err.message);
       return;
     }
 
@@ -45,7 +45,7 @@ const Login: React.FC<Props> = () => {
         history.push("/");
       })
       .catch((err) => {
-        window.alert(err);
+        window.alert(err.response.data.errors.body);
       });
   };
 

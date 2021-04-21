@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createUser, loginUser } from "../controllers/users";
+import { createUser, getUsers, loginUser } from "../controllers/users";
 
 const route = Router();
 
@@ -35,6 +35,20 @@ route.post("/logout", async (req, res) => {
   } catch (err) {
     return res.status(422).json({
       errors: { body: "Logout failed." },
+    });
+  }
+});
+
+route.get("/users", async (req, res) => {
+  try {
+    const users = await getUsers();
+    return res.status(200).json({ users });
+  } catch (err) {
+    return res.status(500).json({
+      errors: {
+        success: false,
+        message: "Could not fetch users. " + err.message,
+      },
     });
   }
 });

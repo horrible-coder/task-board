@@ -16,6 +16,14 @@ const cardListReducer = (
         cardList: action.payload,
       };
     }
+    case cardListTypes.FILTER_CARDS: {
+      return {
+        ...state,
+        cardList: state.cardList.filter((card: any) =>
+          action.payload.some((val: string) => card.created_by.includes(val))
+        ),
+      };
+    }
     default:
       return state;
   }

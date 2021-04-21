@@ -7,3 +7,11 @@ export const setCardList = (payload: any) => {
     payload: payload,
   };
 };
+
+export const filterCards = (payload: any) => {
+  return {
+    type: cardListTypes.FILTER_CARDS,
+    info: "Action to filter the cards",
+    payload: payload,
+  };
+};

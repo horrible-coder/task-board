@@ -31,7 +31,7 @@ const Signup: React.FC<Props> = () => {
       if (password.length < 8)
         throw new Error("Password should be minimum of 8 characters.");
     } catch (err) {
-      window.alert(err);
+      window.alert(err.message);
       return;
     }
 
@@ -45,7 +45,6 @@ const Signup: React.FC<Props> = () => {
       .createUser(payload)
       .then((res) => {
         window.alert(res.data.message);
-        console.log(res.data);
         setEmail("");
         setPassword("");
         setFullName("");
