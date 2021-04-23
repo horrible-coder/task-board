@@ -1,6 +1,8 @@
-# Task Management Application
+# Task Board
 
-Application to organize your tasks and collaborate with team members.
+This is an application to organize your tasks and collaborate with team members.
+
+![Screenshot (1132)](https://user-images.githubusercontent.com/56733093/115865300-c2a99080-a455-11eb-9e43-a910e9124b2b.png)
 
 ## Database Setup
 
