@@ -1,5 +1,11 @@
 import { Router } from "express";
-import { addCard, getCards, moveCard, updateCard } from "../controllers/cards";
+import {
+  addCard,
+  deleteCard,
+  getCards,
+  moveCard,
+  updateCard,
+} from "../controllers/cards";
 
 const route = Router();
 
@@ -43,6 +49,17 @@ route.put("/move/board", async (req, res) => {
   } catch (err) {
     return res.status(422).json({
       errors: { body: ["Move card failed", err.message] },
+    });
+  }
+});
+
+route.delete("/:id", async (req, res) => {
+  try {
+    const card = await deleteCard(req.params.id);
+    return res.status(200).json({ card });
+  } catch (err) {
+    return res.status(422).json({
+      errors: { body: ["Delete card failed", err.message] },
     });
   }
 });

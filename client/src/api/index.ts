@@ -33,6 +33,10 @@ const moveCard = (payload: any) => {
   return api.put("/cards/move/board", payload);
 };
 
+const deleteCard = (payload: any) => {
+  return api.delete(`/cards/${payload}`, { data: payload });
+};
+
 const apis = {
   createUser,
   loginUser,
@@ -42,6 +46,7 @@ const apis = {
   addCard,
   updateCard,
   moveCard,
+  deleteCard,
 };
 
 export default apis;

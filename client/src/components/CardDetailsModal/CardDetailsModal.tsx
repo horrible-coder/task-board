@@ -66,7 +66,7 @@ const CardDetailsModal: React.FC<Props> = ({ show, onHide, task }) => {
           disabled
         ></input>
         <textarea
-          rows={2}
+          rows={3}
           value={title}
           onChange={handleTitleChange}
           placeholder="Title"

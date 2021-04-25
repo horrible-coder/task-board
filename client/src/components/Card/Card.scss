@@ -15,16 +15,13 @@ $font-family: "Noto Sans", sans-serif;
     border-top-right-radius: 5px;
     color: white;
     svg {
-      width: 0.8rem;
-      height: 0.8rem;
-      padding: 0.7rem;
-      background-color: rgb(243, 243, 243);
-      border-radius: 50px;
-      color: black;
+      width: 0.9rem;
+      height: 0.9rem;
+      color: white;
+      visibility: hidden;
     }
     p {
       width: 100vw;
-      text-align: right;
       margin: 0;
       font-size: 0.9rem;
       font-weight: 400;
@@ -36,9 +33,15 @@ $font-family: "Noto Sans", sans-serif;
       color: black;
       font-family: $font-family;
       padding: 0.6rem;
-      font-size: 0.9em;
-      max-height: 11.5vh;
+      font-size: 0.85rem;
+      height: 11.3vh;
+      max-height: 11.3vh;
       margin: 0;
     }
+  }
+}
+.card:hover {
+  svg {
+    visibility: visible;
   }
 }

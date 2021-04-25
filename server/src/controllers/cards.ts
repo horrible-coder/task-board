@@ -41,3 +41,8 @@ export const moveCard = async (data: Card) => {
   );
   return res;
 };
+
+export const deleteCard = async (data: any) => {
+  const res = await Cards.destroy({ where: { id: data } });
+  return res;
+};

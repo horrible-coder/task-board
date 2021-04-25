@@ -1,8 +1,11 @@
 import "./Card.scss";
-import PersonIcon from "@material-ui/icons/Person";
 import { Task } from "../Board/Board";
-import { useState } from "react";
+import React, { useState } from "react";
 import CardDetailsModal from "../CardDetailsModal/CardDetailsModal";
+import ClearIcon from "@material-ui/icons/Clear";
+import apis from "../../api";
+import { useDispatch } from "react-redux";
+import { setCardList } from "../../redux/cards/actions";
 
 export interface Props {
   task: Task;
@@ -12,6 +15,25 @@ export interface Props {
 
 const Card: React.FC<Props> = ({ task, color, onDragStart }) => {
   const [isCardDetailsModalOpen, setIsCardDetailsModalOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const fetchTasks = async () => {
+    await apis
+      .getCards()
+      .then((data) => {
+        dispatch(setCardList(data.data.cards));
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleDeleteButton = async (event: any) => {
+    event.stopPropagation();
+    const taskId = event.currentTarget.id;
+    await apis
+      .deleteCard(taskId)
+      .then((res) => fetchTasks())
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -24,8 +46,8 @@ const Card: React.FC<Props> = ({ task, color, onDragStart }) => {
         onClick={() => setIsCardDetailsModalOpen(true)}
       >
         <div className="user_info" style={{ backgroundColor: color }}>
-          <PersonIcon />
           <p>{task.created_by}</p>
+          <ClearIcon id={task.id.toString()} onClick={handleDeleteButton} />
         </div>
         <div className="status_content">
           <p className="status_text">{task.title}</p>
