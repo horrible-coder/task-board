@@ -3,21 +3,23 @@ import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
 import apis from "../../api";
 import { setCardList } from "../../redux/cards/actions";
-import "./AddCardModal.scss";
+import { Task } from "../Board/Board";
+import "./CardDetailsModal.scss";
 
 export interface Props {
   show: boolean;
   onHide: any;
+  task: Task;
 }
 
 Modal.setAppElement("#root");
 
-const AddCardModal: React.FC<Props> = ({ show, onHide }) => {
-  const userLoggedIn = useSelector((state: any) => state.username.username);
-  const [createdBy, setCreatedBy] = useState(userLoggedIn);
-  const [title, setTitle] = useState("");
-  const [column, setColumn] = useState("To Do");
+const CardDetailsModal: React.FC<Props> = ({ show, onHide, task }) => {
+  const [createdBy] = useState(task.created_by);
+  const [title, setTitle] = useState(task.title);
+  const [column, setColumn] = useState(task.task_column);
 
+  const userLoggedIn = useSelector((state: any) => state.username.username);
   const dispatch = useDispatch();
 
   const fetchTasks = async () => {
@@ -27,12 +29,6 @@ const AddCardModal: React.FC<Props> = ({ show, onHide }) => {
         dispatch(setCardList(data.data.cards));
       })
       .catch((err) => console.log(err));
-  };
-
-  const handleCreatedByChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setCreatedBy(event.target.value);
   };
 
   const handleTitleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -46,29 +42,26 @@ const AddCardModal: React.FC<Props> = ({ show, onHide }) => {
   const handleSubmit = async (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     const payload = {
+      id: task.id,
       title: title,
-      createdBy: createdBy,
+      createdBy: userLoggedIn,
       taskColumn: column,
     };
     await apis
-      .addCard(payload)
+      .updateCard(payload)
       .then((res) => fetchTasks())
       .catch((err) => console.log(err));
 
-    setTitle("");
-    setCreatedBy("");
-    setColumn("");
     onHide();
   };
 
   return (
-    <div className="addCardModal">
+    <div className="cardDetailsModal">
       <Modal isOpen={show} onRequestClose={onHide}>
-        <h1 className="modal_heading">Add New Card</h1>
+        <h1 className="modal_heading">Card ID - {task.id}</h1>
         <input
           type="text"
           value={createdBy}
-          onChange={handleCreatedByChange}
           placeholder="Created By"
           disabled
         ></input>
@@ -89,4 +82,4 @@ const AddCardModal: React.FC<Props> = ({ show, onHide }) => {
   );
 };
 
-export default AddCardModal;
+export default CardDetailsModal;

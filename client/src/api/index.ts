@@ -25,6 +25,10 @@ const getCards = () => {
 
 const addCard = (payload: any) => api.post("/cards", payload);
 
+const updateCard = (payload: any) => {
+  return api.put(`/cards/${payload.id}`, payload);
+};
+
 const moveCard = (payload: any) => {
   return api.put("/cards/move/board", payload);
 };
@@ -36,6 +40,7 @@ const apis = {
   getUsers,
   getCards,
   addCard,
+  updateCard,
   moveCard,
 };
 

@@ -22,6 +22,18 @@ export const addCard = async (data: Card) => {
   return res;
 };
 
+export const updateCard = async (data: Card) => {
+  const res = await Cards.update(
+    {
+      title: data.title,
+      created_by: data.createdBy,
+      task_column: data.taskColumn,
+    },
+    { where: { id: data.id } }
+  );
+  return res;
+};
+
 export const moveCard = async (data: Card) => {
   const res = await Cards.update(
     { task_column: data.taskColumn },

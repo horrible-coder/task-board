@@ -34,6 +34,7 @@ const Sidebar: React.FC<Props> = () => {
       setIsFilterApplied(false);
     } else {
       setIsFilterCardsModalOpen(true);
+      setIsAddCardModalOpen(false);
     }
   };
 
@@ -45,7 +46,12 @@ const Sidebar: React.FC<Props> = () => {
             <TableChartIcon />
           </li>
           <li className="sidebar_item">
-            <AddIcon onClick={() => setIsAddCardModalOpen(true)} />
+            <AddIcon
+              onClick={() => {
+                setIsAddCardModalOpen(true);
+                setIsFilterCardsModalOpen(false);
+              }}
+            />
             <span className="sidebar_item_text">New Task</span>
           </li>
           <li className="sidebar_item">
