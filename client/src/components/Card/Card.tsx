@@ -46,7 +46,10 @@ const Card: React.FC<Props> = ({ task, color, onDragStart }) => {
         onClick={() => setIsCardDetailsModalOpen(true)}
       >
         <div className="user_info" style={{ backgroundColor: color }}>
-          <p>{task.created_by}</p>
+          <div className="card_id">
+            <p>{task.id}</p>
+          </div>
+          <p className="card_created_by">{task.created_by}</p>
           <ClearIcon id={task.id.toString()} onClick={handleDeleteButton} />
         </div>
         <div className="status_content">

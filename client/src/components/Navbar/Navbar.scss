@@ -10,8 +10,23 @@
   top: 0;
   right: 0;
 
+  /* .navbarItemsLeft {
+    width: calc(95rem - 30vw);
+    text-align: right;
+    input {
+      width: 35vw;
+      border-radius: 3px;
+      border: none;
+      padding: 0.6rem;
+      font-size: 0.9rem;
+      font-family: "Noto Sans", sans-serif;
+      color: rgb(104, 104, 104);
+      background-color: rgb(250, 250, 250);
+    }
+  } */
+
   .navbarItemsRight {
-    width: fit-content;
+    width: 30vw;
     ul {
       display: flex;
       justify-content: flex-end;
@@ -27,7 +42,7 @@
       li {
         color: white;
         font-size: 1.2em;
-        font-weight: 400;
+        font-weight: 600;
         cursor: pointer;
         padding: 0 2rem;
       }

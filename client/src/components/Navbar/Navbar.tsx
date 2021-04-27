@@ -25,6 +25,9 @@ const Navbar: React.FC<Props> = () => {
 
   return (
     <div className="navbar">
+      {/* <div className="navbarItemsLeft">
+        <input type="text" placeholder="Search" />
+      </div> */}
       <div className="navbarItemsRight">
         <ul>
           <li>{username}</li>
