@@ -1,8 +1,8 @@
 # Task Board
 
-This is an application to organize your tasks and collaborate with team members.
+Visual collaboration tool to organize your tasks and collaborate with team members.
 
-![Screenshot (1132)](https://user-images.githubusercontent.com/56733093/115865300-c2a99080-a455-11eb-9e43-a910e9124b2b.png)
+![Screenshot (1135)](https://user-images.githubusercontent.com/56733093/116225517-92246800-a76f-11eb-80eb-c245c1a34252.png)
 
 ## Database Setup
 
