@@ -1,58 +1,67 @@
 $font-family: "Noto Sans", sans-serif;
 
 .card {
-  width: 12rem;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 1px 5px 10px rgb(224, 224, 224);
-  margin: 0.3rem;
-  cursor: pointer;
-  .user_info {
-    display: flex;
-    align-items: center;
-    padding: 0 0.6rem 0 0;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    color: white;
-    svg {
-      width: 0.9rem;
-      height: 0.9rem;
-      color: white;
-      visibility: hidden;
-    }
-    .card_id {
-      width: 15vw;
-      text-align: center;
-      border-top-left-radius: 5px;
-      background-color: rgba(0, 0, 0, 0.1);
-      padding: 0.1rem 0.7rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      font-family: $font-family;
-      margin-right: 0.6rem;
-    }
-    .card_created_by {
-      width: 85vw;
-      margin: 0;
-      font-size: 0.9rem;
-      font-weight: 400;
-      font-family: $font-family;
-    }
-  }
-  .status_content {
-    .status_text {
-      color: black;
-      font-family: $font-family;
-      padding: 0.6rem;
-      font-size: 0.85rem;
-      height: 9vh;
-      max-height: 9vh;
-      margin: 0;
-    }
-  }
+	width: 12rem;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 1px 5px 10px rgb(224, 224, 224);
+	margin: 0.3rem;
+	cursor: pointer;
+	.user_info {
+		display: flex;
+		align-items: center;
+		padding: 0 0.6rem 0 0;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+		color: white;
+		svg {
+			width: 0.9rem;
+			height: 0.9rem;
+			color: white;
+			visibility: hidden;
+		}
+		.card_id {
+			width: 15vw;
+			text-align: center;
+			border-top-left-radius: 5px;
+			background-color: rgba(0, 0, 0, 0.1);
+			padding: 0.1rem 0.7rem;
+			font-size: 0.8rem;
+			font-weight: 600;
+			font-family: $font-family;
+			margin-right: 0.6rem;
+		}
+		.card_created_by {
+			width: 85vw;
+			margin: 0;
+			font-size: 0.9rem;
+			font-weight: 400;
+			font-family: $font-family;
+		}
+	}
+	.status_content {
+		.status_text {
+			color: black;
+			font-family: $font-family;
+			padding: 0.6rem;
+			font-size: 0.85rem;
+			height: 9vh;
+			max-height: 9vh;
+			margin: 0;
+		}
+	}
+	.update_date {
+		color: darkgrey;
+		font-size: 0.8rem;
+		padding: 5px;
+		p {
+			text-align: end;
+			margin: 0;
+		}
+	}
 }
 .card:hover {
-  svg {
-    visibility: visible;
-  }
+	svg {
+		visibility: visible;
+	}
 }
