@@ -13,7 +13,8 @@ Visual collaboration tool to organize your tasks and collaborate with team membe
        title text not null,
        created_by varchar(255) not null,
        task_column varchar(255) not null,
-       color varchar(255) not null
+       createdAt varchar(255) not null,
+       updatedAt varchar(255) not null
    );
    ```
 2. Users Table
